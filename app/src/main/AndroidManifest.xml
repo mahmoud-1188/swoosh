@@ -9,7 +9,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".legueoActivity"></activity>
+        <activity android:name=".skillActivity"></activity>
+        <activity android:name=".basseActivity" />
+        <activity android:name=".legueoActivity" />
         <activity android:name=".welcome_screen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
