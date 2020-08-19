@@ -9,10 +9,12 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".skillActivity"></activity>
-        <activity android:name=".basseActivity" />
-        <activity android:name=".legueoActivity" />
-        <activity android:name=".welcome_screen">
+        <activity android:name=".activity.lastActivity"></activity>
+        <activity android:name=".activity.finishActivity" />
+        <activity android:name=".activity.skillActivity" />
+        <activity android:name=".activity.basseActivity" />
+        <activity android:name=".activity.legueoActivity" />
+        <activity android:name=".activity.welcome_screen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

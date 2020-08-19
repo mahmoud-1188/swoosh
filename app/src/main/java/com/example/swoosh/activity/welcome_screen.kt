@@ -1,8 +1,8 @@
-package com.example.swoosh
+package com.example.swoosh.activity
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import com.example.swoosh.R
 import kotlinx.android.synthetic.main.welcome_screen.*
 
 class welcome_screen : basseActivity() {
@@ -14,7 +14,8 @@ class welcome_screen : basseActivity() {
 
         btn.setOnClickListener{
 
-            val leagueintent = Intent(this,legueoActivity::class.java)
+            val leagueintent = Intent(this,
+                legueoActivity::class.java)
 
             startActivity(leagueintent)
         }

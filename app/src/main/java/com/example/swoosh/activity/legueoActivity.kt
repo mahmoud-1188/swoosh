@@ -1,10 +1,11 @@
-package com.example.swoosh
+package com.example.swoosh.activity
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
+import com.example.swoosh.utility.EXTRA_LEGUE
+import com.example.swoosh.R
 import kotlinx.android.synthetic.main.activity_legueo.*
 
 class legueoActivity : basseActivity() {
@@ -13,10 +14,11 @@ class legueoActivity : basseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_legueo)
+
     }
 
     fun back (View:View){
-        if(selectedbtn != "") {
+        if(mensbtn.isChecked || womnsbtn.isChecked || coedbtn.isChecked == true) {
 
             val skillscreen = Intent(this, skillActivity::class.java)
             skillscreen.putExtra(EXTRA_LEGUE, selectedbtn)
@@ -25,7 +27,7 @@ class legueoActivity : basseActivity() {
 
 
         } else {
-            print(selectedbtn)
+
             Toast.makeText(this,"please choise league",Toast.LENGTH_SHORT).show()
 
 
@@ -44,7 +46,7 @@ class legueoActivity : basseActivity() {
 
 
 
-        
+
     }
 
     fun womenonclicked (view: View){
