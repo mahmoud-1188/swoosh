@@ -4,24 +4,43 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.Toast
-import com.example.swoosh.utility.EXTRA_LEGUE
+
 import com.example.swoosh.R
+import com.example.swoosh.model.player
+import com.example.swoosh.utility.EXTRA_PLAYER
 import kotlinx.android.synthetic.main.activity_legueo.*
 
 class legueoActivity : basseActivity() {
 
-    var selectedbtn = ""
+
+    var player = player(league = "",skill = "")
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putParcelable(EXTRA_PLAYER,player)
+
+    }
+
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_legueo)
 
     }
 
+    override fun onRestoreInstanceState(savedInstanceState: Bundle) {
+        super.onRestoreInstanceState(savedInstanceState)
+        player = savedInstanceState.getParcelable(EXTRA_PLAYER)!!
+
+    }
+
+
     fun back (View:View){
         if(mensbtn.isChecked || womnsbtn.isChecked || coedbtn.isChecked == true) {
 
             val skillscreen = Intent(this, skillActivity::class.java)
-            skillscreen.putExtra(EXTRA_LEGUE, selectedbtn)
+            skillscreen.putExtra(EXTRA_PLAYER,player)
             startActivity(skillscreen)
 
 
@@ -41,7 +60,7 @@ class legueoActivity : basseActivity() {
         womnsbtn.isChecked = false
         coedbtn.isChecked = false
 
-        selectedbtn = "mens"
+      player.league = "mens"
 
 
 
@@ -54,7 +73,7 @@ class legueoActivity : basseActivity() {
         mensbtn.isChecked = false
         coedbtn.isChecked = false
 
-        selectedbtn = "womans"
+        player.league = "womans"
     }
 
     fun coedonclicked (view: View){
@@ -62,6 +81,6 @@ class legueoActivity : basseActivity() {
         mensbtn.isChecked = false
         womnsbtn.isChecked = false
 
-        selectedbtn = "coed"
+        player.league = "coed"
     }
 }

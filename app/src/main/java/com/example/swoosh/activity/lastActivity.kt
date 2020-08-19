@@ -4,9 +4,9 @@ import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.example.swoosh.R
-import com.example.swoosh.utility.EXTRA_LEGUE
-import com.example.swoosh.utility.EXTRA_SKILL
+import com.example.swoosh.model.player
 import kotlinx.android.synthetic.main.activity_last.*
+import com.example.swoosh.utility.EXTRA_PLAYER
 
 class lastActivity : AppCompatActivity() {
     @SuppressLint("SetTextI18n")
@@ -14,12 +14,11 @@ class lastActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_last)
 
-        val legue = intent.getStringExtra(EXTRA_LEGUE)
-        val skill = intent.getStringExtra(EXTRA_SKILL)
+        val player = intent.getParcelableExtra<player>(EXTRA_PLAYER)
 
-        text1.text = "looking for a $legue $skill  league near you.... "
-        println(legue)
-        println(skill)
+
+        text1.text = "looking for a ${player.league} ${player.skill}  league near you.... "
+
 
     }
 }
